@@ -9,4 +9,7 @@ export const useMemoStore = create((set) => ({
     set((prev) => ({
       memoList: [...prev.memoList, { content: val, id: new Date().getMilliseconds() + val }],
     })),
+
+  //메모를 삭제하는 removeMemo 액션
+  removeMemo: (id) => set((prev) => ({ memoList: prev.memoList.filter((e) => e.id !== id) })),
 }));
